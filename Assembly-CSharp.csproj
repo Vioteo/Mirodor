@@ -62,10 +62,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CameraRot.cs" />
-    <Compile Include="Assets\MenuControls.cs" />
-    <Compile Include="Assets\MovingScript.cs" />
-    <Compile Include="Assets\Settings.cs" />
+    <Compile Include="Assets\Scripts\Inventory\HUD.cs" />
+    <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
+    <Compile Include="Assets\Scripts\Inventory\InventoryItem.cs" />
+    <Compile Include="Assets\Scripts\Inventory\ItemCollider.cs" />
+    <Compile Include="Assets\Scripts\Inventory\ItemDragHandler.cs" />
+    <Compile Include="Assets\Scripts\Inventory\ItemDropHandler.cs" />
+    <Compile Include="Assets\Scripts\Inventory\MenuControls.cs" />
+    <Compile Include="Assets\Scripts\Inventory\Settings.cs" />
+    <Compile Include="Assets\Scripts\Items\Block.cs" />
+    <Compile Include="Assets\Scripts\Player\CameraRot.cs" />
+    <Compile Include="Assets\Scripts\Player\MovingScript.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/AVSok/Desktop/Mirodor/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
