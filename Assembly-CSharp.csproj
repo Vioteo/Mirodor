@@ -62,7 +62,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CameraRot.cs" />
     <Compile Include="Assets\MenuControls.cs" />
+    <Compile Include="Assets\MovingScript.cs" />
     <Compile Include="Assets\Settings.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/AVSok/Desktop/Mirodor/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
