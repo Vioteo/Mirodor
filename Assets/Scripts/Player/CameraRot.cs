@@ -8,6 +8,7 @@ public class CameraRot : MonoBehaviour
 
     [SerializeField] private Transform playerBody;
 
+    private bool locked = true;
     private float xAxisClamp;
     public void Awake()
     {
@@ -19,8 +20,27 @@ public class CameraRot : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
+    public void UnlockKursor()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
     public void Update()
     {
+        if (Input.GetKeyDown(KeyCode.I))
+            {
+            Debug.Log("pressed");
+            locked = !locked;
+            if (locked)
+            {
+                LockKursor();
+            }
+            else
+            {
+                UnlockKursor();
+            }
+        }
+        if (locked)
         CameraRotation();
     }
     private void CameraRotation()

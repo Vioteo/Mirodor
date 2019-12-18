@@ -1,16 +1,19 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - Block
     - CameraRot
-    - HUD
+    - CharacterCombat
+    - CharacterStats
+    - Enemy
+    - EnemyController
+    - EnemyStats
     - Inventory
-    - ItemCollider
-    - ItemDragHandler
-    - ItemDropHandler
-    - MenuControls
+    - InventorySlot
+    - InventoryUI
+    - Item
+    - ItemPickUp
     - MovingScript
-    - Settings
+    - PlayerManager
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -21,7 +24,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.Dropdown
     - UnityEngine.UI.GraphicRaycaster
-    - UnityEngine.UI.HorizontalLayoutGroup
+    - UnityEngine.UI.GridLayoutGroup
     - UnityEngine.UI.Image
     - UnityEngine.UI.LayoutElement
     - UnityEngine.UI.Mask
@@ -55,7 +58,13 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 65
       Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -64,38 +73,58 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9660}
     - Class: 114
-      Script: {instanceID: 9792}
-    - Class: 114
-      Script: {instanceID: 9850}
+      Script: {instanceID: 9810}
     - Class: 114
       Script: {instanceID: 9852}
     - Class: 114
-      Script: {instanceID: 9898}
+      Script: {instanceID: 9904}
     - Class: 114
-      Script: {instanceID: 10220}
+      Script: {instanceID: 9974}
     - Class: 114
-      Script: {instanceID: 10326}
+      Script: {instanceID: 10222}
     - Class: 114
-      Script: {instanceID: 10558}
+      Script: {instanceID: 10362}
     - Class: 114
-      Script: {instanceID: 10762}
+      Script: {instanceID: 10562}
     - Class: 114
-      Script: {instanceID: 10998}
+      Script: {instanceID: 11002}
     - Class: 114
-      Script: {instanceID: 11066}
+      Script: {instanceID: 11044}
     - Class: 114
-      Script: {instanceID: 11280}
+      Script: {instanceID: 11340}
     - Class: 114
-      Script: {instanceID: 11334}
+      Script: {instanceID: 11352}
     - Class: 114
-      Script: {instanceID: 11346}
+      Script: {instanceID: 11418}
     - Class: 114
-      Script: {instanceID: 11412}
+      Script: {instanceID: 17668}
+    - Class: 114
+      Script: {instanceID: 18150}
+    - Class: 114
+      Script: {instanceID: 18178}
+    - Class: 114
+      Script: {instanceID: 31602}
+    - Class: 114
+      Script: {instanceID: 31608}
+    - Class: 114
+      Script: {instanceID: 45710}
+    - Class: 114
+      Script: {instanceID: 45980}
+    - Class: 114
+      Script: {instanceID: 45986}
     - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 136
       Script: {instanceID: 0}
     - Class: 143
       Script: {instanceID: 0}
     - Class: 157
+      Script: {instanceID: 0}
+    - Class: 195
+      Script: {instanceID: 0}
+    - Class: 196
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -104,6 +133,8 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 238
       Script: {instanceID: 0}
     Assets/Scenes/Menu.unity:
     - Class: 1
@@ -139,29 +170,29 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9968}
     - Class: 114
-      Script: {instanceID: 10136}
+      Script: {instanceID: 10138}
     - Class: 114
-      Script: {instanceID: 10220}
+      Script: {instanceID: 10222}
     - Class: 114
-      Script: {instanceID: 10236}
+      Script: {instanceID: 10238}
     - Class: 114
-      Script: {instanceID: 10386}
+      Script: {instanceID: 10390}
     - Class: 114
-      Script: {instanceID: 10558}
+      Script: {instanceID: 10562}
     - Class: 114
-      Script: {instanceID: 10642}
+      Script: {instanceID: 10646}
     - Class: 114
-      Script: {instanceID: 10998}
+      Script: {instanceID: 11002}
     - Class: 114
-      Script: {instanceID: 11220}
+      Script: {instanceID: 11226}
     - Class: 114
-      Script: {instanceID: 11336}
+      Script: {instanceID: 11342}
     - Class: 114
-      Script: {instanceID: 11346}
+      Script: {instanceID: 11352}
     - Class: 114
-      Script: {instanceID: 11360}
+      Script: {instanceID: 11366}
     - Class: 114
-      Script: {instanceID: 11378}
+      Script: {instanceID: 11384}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -227,12 +258,6 @@ ScriptsOnlyBuild:
     className: ActivationTrack
   - hash:
       serializedVersion: 2
-      Hash: 8811a116da275067592d62d0dcff02a2
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: HUD
-  - hash:
-      serializedVersion: 2
       Hash: fc108ce7d98c40ac0907e8ca7f500c76
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -257,12 +282,6 @@ ScriptsOnlyBuild:
     className: TouchInputModule
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ItemDragHandler
-  - hash:
-      serializedVersion: 2
       Hash: 89498a9a4a6296605faa18a2c5f758a4
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -279,12 +298,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_InputField
-  - hash:
-      serializedVersion: 2
-      Hash: 4fbe69844bbf37140d85d554999ed819
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Block
   - hash:
       serializedVersion: 2
       Hash: 7ab0e790220bdca831fdd886b339039d
@@ -315,6 +328,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: PhysicsRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: 770b1115807aaab948646a2b995cbf84
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EnemyController
   - hash:
       serializedVersion: 2
       Hash: bd3cf68c8964d3c66d1c43f4f98508c9
@@ -371,12 +390,6 @@ ScriptsOnlyBuild:
     className: ControlPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: b670ffaadc25f7fbc7475d89751e641d
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Settings
-  - hash:
-      serializedVersion: 2
       Hash: b8a5e8091ab0b8861d2add371082c5e0
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -395,10 +408,10 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: 8811a116da275067592d62d0dcff02a2
+      Hash: 44409b598bc2d4d6e9c7e1d29a377633
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: ItemDropHandler
+    className: Enemy
   - hash:
       serializedVersion: 2
       Hash: b3ab2106268377ffe25dd18ac23dca28
@@ -527,10 +540,10 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 83e769eee07fc231384c812eedbb8224
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: Inventory
+    className: PlayerManager
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -543,12 +556,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_StyleSheet
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: MenuControls
   - hash:
       serializedVersion: 2
       Hash: 5372ed2ce39229b1ac910757999a8be2
@@ -567,12 +574,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: PlayModeRunnerCallback
-  - hash:
-      serializedVersion: 2
-      Hash: 63d3f1d85cc587082f38c098be0d839e
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ItemCollider
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -657,6 +658,78 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MovingScript
+  - hash:
+      serializedVersion: 2
+      Hash: 8c328a0ffa03c1bcb9332bb39f4f8453
+    assemblyName: Unity.RenderPipelines.Core.Runtime.dll
+    namespaceName: UnityEngine.Rendering
+    className: Volume
+  - hash:
+      serializedVersion: 2
+      Hash: 4d51d5ccf37d2089bdfe827617b784ff
+    assemblyName: Unity.RenderPipelines.Core.Runtime.dll
+    namespaceName: UnityEngine.Rendering
+    className: VolumeProfile
+  - hash:
+      serializedVersion: 2
+      Hash: a64b8ff703a69f3352c424e9d0bc1c49
+    assemblyName: Unity.RenderPipelines.Core.Runtime.dll
+    namespaceName: UnityEngine.Rendering
+    className: VolumeComponent
+  - hash:
+      serializedVersion: 2
+      Hash: 44409b598bc2d4d6e9c7e1d29a377633
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Interactable
+  - hash:
+      serializedVersion: 2
+      Hash: a1181880265b1897c0d0375c80595601
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ItemPickUp
+  - hash:
+      serializedVersion: 2
+      Hash: 4a315a7872a8eabcd6fbdeb95d583242
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Item
+  - hash:
+      serializedVersion: 2
+      Hash: b04d548399136052f80f7efa8a039d23
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Inventory
+  - hash:
+      serializedVersion: 2
+      Hash: 4c72ec18247a69f2925dd7b08a3cc61f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: InventoryUI
+  - hash:
+      serializedVersion: 2
+      Hash: 9b2a096955c53f2e75cf4e9af6af02cd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: InventorySlot
+  - hash:
+      serializedVersion: 2
+      Hash: 2b836196cf82916b4d2761c424ea218f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CharacterStats
+  - hash:
+      serializedVersion: 2
+      Hash: 2b836196cf82916b4d2761c424ea218f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EnemyStats
+  - hash:
+      serializedVersion: 2
+      Hash: 4539d1889ca97adba488f26def803a98
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CharacterCombat
   platform: 5
   scenePathNames:
   - Assets/Scenes/Menu.unity
